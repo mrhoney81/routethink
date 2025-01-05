@@ -1,144 +1,144 @@
-2025-01-05 19:44:59,363 - __main__ - INFO - Processing GPX file: gpx_test.gpx
-2025-01-05 19:44:59,515 - __main__ - INFO - Route length: 138.73km
-2025-01-05 19:44:59,515 - __main__ - INFO - Creating buffer for route...
-2025-01-05 19:44:59,607 - __main__ - INFO - Fetching POIs...
-2025-01-05 19:45:00,612 - __main__ - INFO - Fetching shops...
-2025-01-05 19:45:02,083 - __main__ - INFO - Fetching campsites...
-2025-01-05 19:45:02,331 - __main__ - DEBUG - Point: (-1.3180291, 51.3851575)
-2025-01-05 19:45:02,332 - __main__ - DEBUG - Distance along route: 4.2km
-2025-01-05 19:45:02,332 - __main__ - DEBUG - Total route length: 138.73km
-2025-01-05 19:45:02,334 - urllib3.connectionpool - DEBUG - Starting new HTTPS connection (1): api.open-meteo.com:443
-2025-01-05 19:45:02,451 - urllib3.connectionpool - DEBUG - https://api.open-meteo.com:443 "GET /v1/elevation?latitude=51.3851575&longitude=-1.3180291 HTTP/1.1" 200 29
-2025-01-05 19:45:02,769 - __main__ - DEBUG - Point: (-1.3171735, 51.3851934)
-2025-01-05 19:45:02,770 - __main__ - DEBUG - Distance along route: 4.13km
-2025-01-05 19:45:02,770 - __main__ - DEBUG - Total route length: 138.73km
-2025-01-05 19:45:02,771 - urllib3.connectionpool - DEBUG - Starting new HTTPS connection (1): api.open-meteo.com:443
-2025-01-05 19:45:02,882 - urllib3.connectionpool - DEBUG - https://api.open-meteo.com:443 "GET /v1/elevation?latitude=51.3851934&longitude=-1.3171735 HTTP/1.1" 200 29
-2025-01-05 19:45:03,201 - __main__ - DEBUG - Point: (-1.9030903, 51.1943815)
-2025-01-05 19:45:03,201 - __main__ - DEBUG - Distance along route: 57.38km
-2025-01-05 19:45:03,201 - __main__ - DEBUG - Total route length: 138.73km
-2025-01-05 19:45:03,202 - urllib3.connectionpool - DEBUG - Starting new HTTPS connection (1): api.open-meteo.com:443
-2025-01-05 19:45:03,316 - urllib3.connectionpool - DEBUG - https://api.open-meteo.com:443 "GET /v1/elevation?latitude=51.1943815&longitude=-1.9030903 HTTP/1.1" 200 28
-2025-01-05 19:45:03,634 - __main__ - DEBUG - Point: (-2.7206144, 51.150286)
-2025-01-05 19:45:03,635 - __main__ - DEBUG - Distance along route: 123.85km
-2025-01-05 19:45:03,635 - __main__ - DEBUG - Total route length: 138.73km
-2025-01-05 19:45:03,636 - urllib3.connectionpool - DEBUG - Starting new HTTPS connection (1): api.open-meteo.com:443
-2025-01-05 19:45:03,748 - urllib3.connectionpool - DEBUG - https://api.open-meteo.com:443 "GET /v1/elevation?latitude=51.150286&longitude=-2.7206144 HTTP/1.1" 200 28
-2025-01-05 19:45:04,066 - __main__ - DEBUG - Point: (-1.3415338, 51.3809205)
-2025-01-05 19:45:04,066 - __main__ - DEBUG - Distance along route: 5.93km
-2025-01-05 19:45:04,067 - __main__ - DEBUG - Total route length: 138.73km
-2025-01-05 19:45:04,068 - urllib3.connectionpool - DEBUG - Starting new HTTPS connection (1): api.open-meteo.com:443
-2025-01-05 19:45:04,180 - urllib3.connectionpool - DEBUG - https://api.open-meteo.com:443 "GET /v1/elevation?latitude=51.3809205&longitude=-1.3415338 HTTP/1.1" 200 29
-2025-01-05 19:45:04,501 - __main__ - DEBUG - Point: (-2.505599, 51.1482999)
-2025-01-05 19:45:04,501 - __main__ - DEBUG - Distance along route: 106.92km
-2025-01-05 19:45:04,501 - __main__ - DEBUG - Total route length: 138.73km
-2025-01-05 19:45:04,502 - urllib3.connectionpool - DEBUG - Starting new HTTPS connection (1): api.open-meteo.com:443
-2025-01-05 19:45:04,611 - urllib3.connectionpool - DEBUG - https://api.open-meteo.com:443 "GET /v1/elevation?latitude=51.1482999&longitude=-2.505599 HTTP/1.1" 200 28
-2025-01-05 19:45:04,935 - __main__ - DEBUG - Point: (-2.7157712, 51.1476755)
-2025-01-05 19:45:04,935 - __main__ - DEBUG - Distance along route: 123.7km
-2025-01-05 19:45:04,935 - __main__ - DEBUG - Total route length: 138.73km
-2025-01-05 19:45:04,936 - urllib3.connectionpool - DEBUG - Starting new HTTPS connection (1): api.open-meteo.com:443
-2025-01-05 19:45:05,045 - urllib3.connectionpool - DEBUG - https://api.open-meteo.com:443 "GET /v1/elevation?latitude=51.1476755&longitude=-2.7157712 HTTP/1.1" 200 28
-2025-01-05 19:45:05,372 - __main__ - DEBUG - Point: (-2.7166711, 51.1475678)
-2025-01-05 19:45:05,373 - __main__ - DEBUG - Distance along route: 123.77km
-2025-01-05 19:45:05,373 - __main__ - DEBUG - Total route length: 138.73km
-2025-01-05 19:45:05,374 - urllib3.connectionpool - DEBUG - Starting new HTTPS connection (1): api.open-meteo.com:443
-2025-01-05 19:45:05,484 - urllib3.connectionpool - DEBUG - https://api.open-meteo.com:443 "GET /v1/elevation?latitude=51.1475678&longitude=-2.7166711 HTTP/1.1" 200 28
-2025-01-05 19:45:05,811 - __main__ - DEBUG - Point: (-1.3174313, 51.3861987)
-2025-01-05 19:45:05,811 - __main__ - DEBUG - Distance along route: 4.13km
-2025-01-05 19:45:05,811 - __main__ - DEBUG - Total route length: 138.73km
-2025-01-05 19:45:05,812 - urllib3.connectionpool - DEBUG - Starting new HTTPS connection (1): api.open-meteo.com:443
-2025-01-05 19:45:05,926 - urllib3.connectionpool - DEBUG - https://api.open-meteo.com:443 "GET /v1/elevation?latitude=51.3861987&longitude=-1.3174313 HTTP/1.1" 200 29
-2025-01-05 19:45:06,246 - __main__ - DEBUG - Point: (-2.7141166, 51.1480972)
-2025-01-05 19:45:06,247 - __main__ - DEBUG - Distance along route: 123.58km
-2025-01-05 19:45:06,247 - __main__ - DEBUG - Total route length: 138.73km
-2025-01-05 19:45:06,248 - urllib3.connectionpool - DEBUG - Starting new HTTPS connection (1): api.open-meteo.com:443
-2025-01-05 19:45:06,362 - urllib3.connectionpool - DEBUG - https://api.open-meteo.com:443 "GET /v1/elevation?latitude=51.1480972&longitude=-2.7141166 HTTP/1.1" 200 28
-2025-01-05 19:45:06,681 - __main__ - DEBUG - Point: (-1.3406287, 51.3825041)
-2025-01-05 19:45:06,681 - __main__ - DEBUG - Distance along route: 5.86km
-2025-01-05 19:45:06,681 - __main__ - DEBUG - Total route length: 138.73km
-2025-01-05 19:45:06,682 - urllib3.connectionpool - DEBUG - Starting new HTTPS connection (1): api.open-meteo.com:443
-2025-01-05 19:45:06,791 - urllib3.connectionpool - DEBUG - https://api.open-meteo.com:443 "GET /v1/elevation?latitude=51.3825041&longitude=-1.3406287 HTTP/1.1" 200 29
-2025-01-05 19:45:07,110 - __main__ - DEBUG - Point: (-2.7179553, 51.1466812)
-2025-01-05 19:45:07,110 - __main__ - DEBUG - Distance along route: 123.9km
-2025-01-05 19:45:07,110 - __main__ - DEBUG - Total route length: 138.73km
-2025-01-05 19:45:07,111 - urllib3.connectionpool - DEBUG - Starting new HTTPS connection (1): api.open-meteo.com:443
-2025-01-05 19:45:07,225 - urllib3.connectionpool - DEBUG - https://api.open-meteo.com:443 "GET /v1/elevation?latitude=51.1466812&longitude=-2.7179553 HTTP/1.1" 200 28
-2025-01-05 19:45:07,542 - __main__ - DEBUG - Point: (-2.718166, 51.1474793)
-2025-01-05 19:45:07,542 - __main__ - DEBUG - Distance along route: 123.86km
-2025-01-05 19:45:07,542 - __main__ - DEBUG - Total route length: 138.73km
-2025-01-05 19:45:07,544 - urllib3.connectionpool - DEBUG - Starting new HTTPS connection (1): api.open-meteo.com:443
-2025-01-05 19:45:07,656 - urllib3.connectionpool - DEBUG - https://api.open-meteo.com:443 "GET /v1/elevation?latitude=51.1474793&longitude=-2.718166 HTTP/1.1" 200 28
-2025-01-05 19:45:07,973 - __main__ - DEBUG - Point: (-1.3407093, 51.3824823)
-2025-01-05 19:45:07,973 - __main__ - DEBUG - Distance along route: 5.86km
-2025-01-05 19:45:07,974 - __main__ - DEBUG - Total route length: 138.73km
-2025-01-05 19:45:07,975 - urllib3.connectionpool - DEBUG - Starting new HTTPS connection (1): api.open-meteo.com:443
-2025-01-05 19:45:08,083 - urllib3.connectionpool - DEBUG - https://api.open-meteo.com:443 "GET /v1/elevation?latitude=51.3824823&longitude=-1.3407093 HTTP/1.1" 200 29
-2025-01-05 19:45:08,399 - __main__ - DEBUG - Point: (-2.7196496994882335, 51.14536528946274)
-2025-01-05 19:45:08,400 - __main__ - DEBUG - Distance along route: 124.05km
-2025-01-05 19:45:08,400 - __main__ - DEBUG - Total route length: 138.73km
-2025-01-05 19:45:08,401 - urllib3.connectionpool - DEBUG - Starting new HTTPS connection (1): api.open-meteo.com:443
-2025-01-05 19:45:08,515 - urllib3.connectionpool - DEBUG - https://api.open-meteo.com:443 "GET /v1/elevation?latitude=51.14536528946274&longitude=-2.7196496994882335 HTTP/1.1" 200 28
-2025-01-05 19:45:08,838 - __main__ - DEBUG - Point: (-2.7311553990309214, 51.14295215696265)
-2025-01-05 19:45:08,839 - __main__ - DEBUG - Distance along route: 124.91km
-2025-01-05 19:45:08,839 - __main__ - DEBUG - Total route length: 138.73km
-2025-01-05 19:45:08,840 - urllib3.connectionpool - DEBUG - Starting new HTTPS connection (1): api.open-meteo.com:443
-2025-01-05 19:45:08,949 - urllib3.connectionpool - DEBUG - https://api.open-meteo.com:443 "GET /v1/elevation?latitude=51.14295215696265&longitude=-2.7311553990309214 HTTP/1.1" 200 27
-2025-01-05 19:45:09,266 - __main__ - DEBUG - Point: (-1.317867467642635, 51.38274212792579)
-2025-01-05 19:45:09,266 - __main__ - DEBUG - Distance along route: 4.21km
-2025-01-05 19:45:09,267 - __main__ - DEBUG - Total route length: 138.73km
-2025-01-05 19:45:09,269 - urllib3.connectionpool - DEBUG - Starting new HTTPS connection (1): api.open-meteo.com:443
-2025-01-05 19:45:09,382 - urllib3.connectionpool - DEBUG - https://api.open-meteo.com:443 "GET /v1/elevation?latitude=51.38274212792579&longitude=-1.317867467642635 HTTP/1.1" 200 29
-2025-01-05 19:45:09,707 - __main__ - DEBUG - Point: (-2.6842371875689373, 51.15205483752763)
-2025-01-05 19:45:09,707 - __main__ - DEBUG - Distance along route: 121.34km
-2025-01-05 19:45:09,707 - __main__ - DEBUG - Total route length: 138.73km
-2025-01-05 19:45:09,708 - urllib3.connectionpool - DEBUG - Starting new HTTPS connection (1): api.open-meteo.com:443
-2025-01-05 19:45:09,823 - urllib3.connectionpool - DEBUG - https://api.open-meteo.com:443 "GET /v1/elevation?latitude=51.15205483752763&longitude=-2.6842371875689373 HTTP/1.1" 200 28
-2025-01-05 19:45:10,146 - __main__ - DEBUG - Point: (-2.5051866999999994, 51.147953599999994)
-2025-01-05 19:45:10,146 - __main__ - DEBUG - Distance along route: 106.92km
-2025-01-05 19:45:10,146 - __main__ - DEBUG - Total route length: 138.73km
-2025-01-05 19:45:10,147 - urllib3.connectionpool - DEBUG - Starting new HTTPS connection (1): api.open-meteo.com:443
-2025-01-05 19:45:10,258 - urllib3.connectionpool - DEBUG - https://api.open-meteo.com:443 "GET /v1/elevation?latitude=51.147953599999994&longitude=-2.5051866999999994 HTTP/1.1" 200 28
-2025-01-05 19:45:10,580 - __main__ - DEBUG - Point: (-2.733664629693808, 51.14208531488366)
-2025-01-05 19:45:10,580 - __main__ - DEBUG - Distance along route: 125.11km
-2025-01-05 19:45:10,581 - __main__ - DEBUG - Total route length: 138.73km
-2025-01-05 19:45:10,582 - urllib3.connectionpool - DEBUG - Starting new HTTPS connection (1): api.open-meteo.com:443
-2025-01-05 19:45:10,695 - urllib3.connectionpool - DEBUG - https://api.open-meteo.com:443 "GET /v1/elevation?latitude=51.14208531488366&longitude=-2.733664629693808 HTTP/1.1" 200 27
-2025-01-05 19:45:11,015 - __main__ - DEBUG - Point: (-2.717088315985718, 51.14783283847543)
-2025-01-05 19:45:11,015 - __main__ - DEBUG - Distance along route: 123.79km
-2025-01-05 19:45:11,016 - __main__ - DEBUG - Total route length: 138.73km
-2025-01-05 19:45:11,017 - urllib3.connectionpool - DEBUG - Starting new HTTPS connection (1): api.open-meteo.com:443
-2025-01-05 19:45:11,127 - urllib3.connectionpool - DEBUG - https://api.open-meteo.com:443 "GET /v1/elevation?latitude=51.14783283847543&longitude=-2.717088315985718 HTTP/1.1" 200 28
-2025-01-05 19:45:11,451 - __main__ - DEBUG - Point: (-1.3153745616007033, 51.38842910979897)
-2025-01-05 19:45:11,452 - __main__ - DEBUG - Distance along route: 4.12km
-2025-01-05 19:45:11,452 - __main__ - DEBUG - Total route length: 138.73km
-2025-01-05 19:45:11,453 - urllib3.connectionpool - DEBUG - Starting new HTTPS connection (1): api.open-meteo.com:443
-2025-01-05 19:45:11,560 - urllib3.connectionpool - DEBUG - https://api.open-meteo.com:443 "GET /v1/elevation?latitude=51.38842910979897&longitude=-1.3153745616007033 HTTP/1.1" 200 29
-2025-01-05 19:45:11,885 - __main__ - DEBUG - Point: (-2.7286936654346188, 51.14255434457309)
-2025-01-05 19:45:11,885 - __main__ - DEBUG - Distance along route: 124.64km
-2025-01-05 19:45:11,886 - __main__ - DEBUG - Total route length: 138.73km
-2025-01-05 19:45:11,887 - urllib3.connectionpool - DEBUG - Starting new HTTPS connection (1): api.open-meteo.com:443
-2025-01-05 19:45:11,998 - urllib3.connectionpool - DEBUG - https://api.open-meteo.com:443 "GET /v1/elevation?latitude=51.14255434457309&longitude=-2.7286936654346188 HTTP/1.1" 200 27
-2025-01-05 19:45:12,320 - __main__ - DEBUG - Point: (-1.9040262, 51.19434345)
-2025-01-05 19:45:12,320 - __main__ - DEBUG - Distance along route: 57.39km
-2025-01-05 19:45:12,320 - __main__ - DEBUG - Total route length: 138.73km
-2025-01-05 19:45:12,321 - urllib3.connectionpool - DEBUG - Starting new HTTPS connection (1): api.open-meteo.com:443
-2025-01-05 19:45:12,436 - urllib3.connectionpool - DEBUG - https://api.open-meteo.com:443 "GET /v1/elevation?latitude=51.19434345&longitude=-1.9040262 HTTP/1.1" 200 28
-2025-01-05 19:45:12,754 - __main__ - DEBUG - Point: (-2.6916462, 51.1524879)
-2025-01-05 19:45:12,754 - __main__ - DEBUG - Distance along route: 121.61km
-2025-01-05 19:45:12,754 - __main__ - DEBUG - Total route length: 138.73km
-2025-01-05 19:45:12,756 - urllib3.connectionpool - DEBUG - Starting new HTTPS connection (1): api.open-meteo.com:443
-2025-01-05 19:45:12,866 - urllib3.connectionpool - DEBUG - https://api.open-meteo.com:443 "GET /v1/elevation?latitude=51.1524879&longitude=-2.6916462 HTTP/1.1" 200 28
-2025-01-05 19:45:13,188 - __main__ - DEBUG - Point: (-2.684218643356802, 51.15123394471836)
-2025-01-05 19:45:13,189 - __main__ - DEBUG - Distance along route: 121.34km
-2025-01-05 19:45:13,189 - __main__ - DEBUG - Total route length: 138.73km
-2025-01-05 19:45:13,190 - urllib3.connectionpool - DEBUG - Starting new HTTPS connection (1): api.open-meteo.com:443
-2025-01-05 19:45:13,298 - urllib3.connectionpool - DEBUG - https://api.open-meteo.com:443 "GET /v1/elevation?latitude=51.15123394471836&longitude=-2.684218643356802 HTTP/1.1" 200 28
-2025-01-05 19:45:13,623 - __main__ - DEBUG - Point: (-2.6050174094860465, 51.147185535622725)
-2025-01-05 19:45:13,624 - __main__ - DEBUG - Distance along route: 115.11km
-2025-01-05 19:45:13,624 - __main__ - DEBUG - Total route length: 138.73km
-2025-01-05 19:45:13,625 - urllib3.connectionpool - DEBUG - Starting new HTTPS connection (1): api.open-meteo.com:443
-2025-01-05 19:45:13,738 - urllib3.connectionpool - DEBUG - https://api.open-meteo.com:443 "GET /v1/elevation?latitude=51.147185535622725&longitude=-2.6050174094860465 HTTP/1.1" 200 28
-2025-01-05 19:45:14,005 - __main__ - INFO - Found 27 POIs
-2025-01-05 19:45:14,008 - __main__ - INFO - Results saved to route_pois.csv
-2025-01-05 19:45:14,009 - __main__ - INFO - HTML report saved to route_pois.html
+2025-01-05 20:11:56,145 - __main__ - INFO - Processing GPX file: gpx_test.gpx
+2025-01-05 20:11:56,282 - __main__ - INFO - Route length: 138.73km
+2025-01-05 20:11:56,282 - __main__ - INFO - Creating buffer for route...
+2025-01-05 20:11:56,377 - __main__ - INFO - Fetching POIs...
+2025-01-05 20:11:57,392 - __main__ - INFO - Fetching shops...
+2025-01-05 20:11:58,887 - __main__ - INFO - Fetching campsites...
+2025-01-05 20:11:59,123 - __main__ - DEBUG - Point: (-1.3180291, 51.3851575)
+2025-01-05 20:11:59,123 - __main__ - DEBUG - Distance along route: 4.2km
+2025-01-05 20:11:59,123 - __main__ - DEBUG - Total route length: 138.73km
+2025-01-05 20:11:59,125 - urllib3.connectionpool - DEBUG - Starting new HTTPS connection (1): api.open-meteo.com:443
+2025-01-05 20:11:59,240 - urllib3.connectionpool - DEBUG - https://api.open-meteo.com:443 "GET /v1/elevation?latitude=51.3851575&longitude=-1.3180291 HTTP/1.1" 200 29
+2025-01-05 20:11:59,584 - __main__ - DEBUG - Point: (-1.3171735, 51.3851934)
+2025-01-05 20:11:59,585 - __main__ - DEBUG - Distance along route: 4.13km
+2025-01-05 20:11:59,585 - __main__ - DEBUG - Total route length: 138.73km
+2025-01-05 20:11:59,586 - urllib3.connectionpool - DEBUG - Starting new HTTPS connection (1): api.open-meteo.com:443
+2025-01-05 20:11:59,696 - urllib3.connectionpool - DEBUG - https://api.open-meteo.com:443 "GET /v1/elevation?latitude=51.3851934&longitude=-1.3171735 HTTP/1.1" 200 29
+2025-01-05 20:12:00,028 - __main__ - DEBUG - Point: (-1.9030903, 51.1943815)
+2025-01-05 20:12:00,029 - __main__ - DEBUG - Distance along route: 57.38km
+2025-01-05 20:12:00,029 - __main__ - DEBUG - Total route length: 138.73km
+2025-01-05 20:12:00,030 - urllib3.connectionpool - DEBUG - Starting new HTTPS connection (1): api.open-meteo.com:443
+2025-01-05 20:12:00,163 - urllib3.connectionpool - DEBUG - https://api.open-meteo.com:443 "GET /v1/elevation?latitude=51.1943815&longitude=-1.9030903 HTTP/1.1" 200 28
+2025-01-05 20:12:00,506 - __main__ - DEBUG - Point: (-2.7206144, 51.150286)
+2025-01-05 20:12:00,506 - __main__ - DEBUG - Distance along route: 123.85km
+2025-01-05 20:12:00,507 - __main__ - DEBUG - Total route length: 138.73km
+2025-01-05 20:12:00,508 - urllib3.connectionpool - DEBUG - Starting new HTTPS connection (1): api.open-meteo.com:443
+2025-01-05 20:12:00,617 - urllib3.connectionpool - DEBUG - https://api.open-meteo.com:443 "GET /v1/elevation?latitude=51.150286&longitude=-2.7206144 HTTP/1.1" 200 28
+2025-01-05 20:12:00,961 - __main__ - DEBUG - Point: (-1.3415338, 51.3809205)
+2025-01-05 20:12:00,961 - __main__ - DEBUG - Distance along route: 5.93km
+2025-01-05 20:12:00,961 - __main__ - DEBUG - Total route length: 138.73km
+2025-01-05 20:12:00,962 - urllib3.connectionpool - DEBUG - Starting new HTTPS connection (1): api.open-meteo.com:443
+2025-01-05 20:12:01,079 - urllib3.connectionpool - DEBUG - https://api.open-meteo.com:443 "GET /v1/elevation?latitude=51.3809205&longitude=-1.3415338 HTTP/1.1" 200 29
+2025-01-05 20:12:01,410 - __main__ - DEBUG - Point: (-2.505599, 51.1482999)
+2025-01-05 20:12:01,410 - __main__ - DEBUG - Distance along route: 106.92km
+2025-01-05 20:12:01,410 - __main__ - DEBUG - Total route length: 138.73km
+2025-01-05 20:12:01,411 - urllib3.connectionpool - DEBUG - Starting new HTTPS connection (1): api.open-meteo.com:443
+2025-01-05 20:12:01,523 - urllib3.connectionpool - DEBUG - https://api.open-meteo.com:443 "GET /v1/elevation?latitude=51.1482999&longitude=-2.505599 HTTP/1.1" 200 28
+2025-01-05 20:12:01,853 - __main__ - DEBUG - Point: (-2.7157712, 51.1476755)
+2025-01-05 20:12:01,853 - __main__ - DEBUG - Distance along route: 123.7km
+2025-01-05 20:12:01,853 - __main__ - DEBUG - Total route length: 138.73km
+2025-01-05 20:12:01,854 - urllib3.connectionpool - DEBUG - Starting new HTTPS connection (1): api.open-meteo.com:443
+2025-01-05 20:12:01,967 - urllib3.connectionpool - DEBUG - https://api.open-meteo.com:443 "GET /v1/elevation?latitude=51.1476755&longitude=-2.7157712 HTTP/1.1" 200 28
+2025-01-05 20:12:02,317 - __main__ - DEBUG - Point: (-2.7166711, 51.1475678)
+2025-01-05 20:12:02,318 - __main__ - DEBUG - Distance along route: 123.77km
+2025-01-05 20:12:02,318 - __main__ - DEBUG - Total route length: 138.73km
+2025-01-05 20:12:02,319 - urllib3.connectionpool - DEBUG - Starting new HTTPS connection (1): api.open-meteo.com:443
+2025-01-05 20:12:02,432 - urllib3.connectionpool - DEBUG - https://api.open-meteo.com:443 "GET /v1/elevation?latitude=51.1475678&longitude=-2.7166711 HTTP/1.1" 200 28
+2025-01-05 20:12:02,763 - __main__ - DEBUG - Point: (-1.3174313, 51.3861987)
+2025-01-05 20:12:02,763 - __main__ - DEBUG - Distance along route: 4.13km
+2025-01-05 20:12:02,763 - __main__ - DEBUG - Total route length: 138.73km
+2025-01-05 20:12:02,764 - urllib3.connectionpool - DEBUG - Starting new HTTPS connection (1): api.open-meteo.com:443
+2025-01-05 20:12:02,877 - urllib3.connectionpool - DEBUG - https://api.open-meteo.com:443 "GET /v1/elevation?latitude=51.3861987&longitude=-1.3174313 HTTP/1.1" 200 29
+2025-01-05 20:12:03,209 - __main__ - DEBUG - Point: (-2.7141166, 51.1480972)
+2025-01-05 20:12:03,210 - __main__ - DEBUG - Distance along route: 123.58km
+2025-01-05 20:12:03,210 - __main__ - DEBUG - Total route length: 138.73km
+2025-01-05 20:12:03,212 - urllib3.connectionpool - DEBUG - Starting new HTTPS connection (1): api.open-meteo.com:443
+2025-01-05 20:12:03,321 - urllib3.connectionpool - DEBUG - https://api.open-meteo.com:443 "GET /v1/elevation?latitude=51.1480972&longitude=-2.7141166 HTTP/1.1" 200 28
+2025-01-05 20:12:03,733 - __main__ - DEBUG - Point: (-1.3406287, 51.3825041)
+2025-01-05 20:12:03,734 - __main__ - DEBUG - Distance along route: 5.86km
+2025-01-05 20:12:03,734 - __main__ - DEBUG - Total route length: 138.73km
+2025-01-05 20:12:03,735 - urllib3.connectionpool - DEBUG - Starting new HTTPS connection (1): api.open-meteo.com:443
+2025-01-05 20:12:03,850 - urllib3.connectionpool - DEBUG - https://api.open-meteo.com:443 "GET /v1/elevation?latitude=51.3825041&longitude=-1.3406287 HTTP/1.1" 200 29
+2025-01-05 20:12:04,194 - __main__ - DEBUG - Point: (-2.7179553, 51.1466812)
+2025-01-05 20:12:04,194 - __main__ - DEBUG - Distance along route: 123.9km
+2025-01-05 20:12:04,195 - __main__ - DEBUG - Total route length: 138.73km
+2025-01-05 20:12:04,196 - urllib3.connectionpool - DEBUG - Starting new HTTPS connection (1): api.open-meteo.com:443
+2025-01-05 20:12:04,309 - urllib3.connectionpool - DEBUG - https://api.open-meteo.com:443 "GET /v1/elevation?latitude=51.1466812&longitude=-2.7179553 HTTP/1.1" 200 28
+2025-01-05 20:12:04,641 - __main__ - DEBUG - Point: (-2.718166, 51.1474793)
+2025-01-05 20:12:04,641 - __main__ - DEBUG - Distance along route: 123.86km
+2025-01-05 20:12:04,641 - __main__ - DEBUG - Total route length: 138.73km
+2025-01-05 20:12:04,642 - urllib3.connectionpool - DEBUG - Starting new HTTPS connection (1): api.open-meteo.com:443
+2025-01-05 20:12:04,753 - urllib3.connectionpool - DEBUG - https://api.open-meteo.com:443 "GET /v1/elevation?latitude=51.1474793&longitude=-2.718166 HTTP/1.1" 200 28
+2025-01-05 20:12:05,105 - __main__ - DEBUG - Point: (-1.3407093, 51.3824823)
+2025-01-05 20:12:05,105 - __main__ - DEBUG - Distance along route: 5.86km
+2025-01-05 20:12:05,105 - __main__ - DEBUG - Total route length: 138.73km
+2025-01-05 20:12:05,107 - urllib3.connectionpool - DEBUG - Starting new HTTPS connection (1): api.open-meteo.com:443
+2025-01-05 20:12:05,229 - urllib3.connectionpool - DEBUG - https://api.open-meteo.com:443 "GET /v1/elevation?latitude=51.3824823&longitude=-1.3407093 HTTP/1.1" 200 29
+2025-01-05 20:12:05,569 - __main__ - DEBUG - Point: (-2.7196496994882335, 51.14536528946274)
+2025-01-05 20:12:05,570 - __main__ - DEBUG - Distance along route: 124.05km
+2025-01-05 20:12:05,570 - __main__ - DEBUG - Total route length: 138.73km
+2025-01-05 20:12:05,571 - urllib3.connectionpool - DEBUG - Starting new HTTPS connection (1): api.open-meteo.com:443
+2025-01-05 20:12:05,689 - urllib3.connectionpool - DEBUG - https://api.open-meteo.com:443 "GET /v1/elevation?latitude=51.14536528946274&longitude=-2.7196496994882335 HTTP/1.1" 200 28
+2025-01-05 20:12:06,016 - __main__ - DEBUG - Point: (-2.7311553990309214, 51.14295215696265)
+2025-01-05 20:12:06,017 - __main__ - DEBUG - Distance along route: 124.91km
+2025-01-05 20:12:06,017 - __main__ - DEBUG - Total route length: 138.73km
+2025-01-05 20:12:06,018 - urllib3.connectionpool - DEBUG - Starting new HTTPS connection (1): api.open-meteo.com:443
+2025-01-05 20:12:06,130 - urllib3.connectionpool - DEBUG - https://api.open-meteo.com:443 "GET /v1/elevation?latitude=51.14295215696265&longitude=-2.7311553990309214 HTTP/1.1" 200 27
+2025-01-05 20:12:06,461 - __main__ - DEBUG - Point: (-1.317867467642635, 51.38274212792579)
+2025-01-05 20:12:06,462 - __main__ - DEBUG - Distance along route: 4.21km
+2025-01-05 20:12:06,462 - __main__ - DEBUG - Total route length: 138.73km
+2025-01-05 20:12:06,464 - urllib3.connectionpool - DEBUG - Starting new HTTPS connection (1): api.open-meteo.com:443
+2025-01-05 20:12:06,577 - urllib3.connectionpool - DEBUG - https://api.open-meteo.com:443 "GET /v1/elevation?latitude=51.38274212792579&longitude=-1.317867467642635 HTTP/1.1" 200 29
+2025-01-05 20:12:06,913 - __main__ - DEBUG - Point: (-2.6842371875689373, 51.15205483752763)
+2025-01-05 20:12:06,913 - __main__ - DEBUG - Distance along route: 121.34km
+2025-01-05 20:12:06,914 - __main__ - DEBUG - Total route length: 138.73km
+2025-01-05 20:12:06,915 - urllib3.connectionpool - DEBUG - Starting new HTTPS connection (1): api.open-meteo.com:443
+2025-01-05 20:12:07,032 - urllib3.connectionpool - DEBUG - https://api.open-meteo.com:443 "GET /v1/elevation?latitude=51.15205483752763&longitude=-2.6842371875689373 HTTP/1.1" 200 28
+2025-01-05 20:12:07,363 - __main__ - DEBUG - Point: (-2.5051866999999994, 51.147953599999994)
+2025-01-05 20:12:07,364 - __main__ - DEBUG - Distance along route: 106.92km
+2025-01-05 20:12:07,364 - __main__ - DEBUG - Total route length: 138.73km
+2025-01-05 20:12:07,365 - urllib3.connectionpool - DEBUG - Starting new HTTPS connection (1): api.open-meteo.com:443
+2025-01-05 20:12:07,477 - urllib3.connectionpool - DEBUG - https://api.open-meteo.com:443 "GET /v1/elevation?latitude=51.147953599999994&longitude=-2.5051866999999994 HTTP/1.1" 200 28
+2025-01-05 20:12:07,810 - __main__ - DEBUG - Point: (-2.733664629693808, 51.14208531488366)
+2025-01-05 20:12:07,810 - __main__ - DEBUG - Distance along route: 125.11km
+2025-01-05 20:12:07,811 - __main__ - DEBUG - Total route length: 138.73km
+2025-01-05 20:12:07,812 - urllib3.connectionpool - DEBUG - Starting new HTTPS connection (1): api.open-meteo.com:443
+2025-01-05 20:12:07,921 - urllib3.connectionpool - DEBUG - https://api.open-meteo.com:443 "GET /v1/elevation?latitude=51.14208531488366&longitude=-2.733664629693808 HTTP/1.1" 200 27
+2025-01-05 20:12:08,257 - __main__ - DEBUG - Point: (-2.717088315985718, 51.14783283847543)
+2025-01-05 20:12:08,258 - __main__ - DEBUG - Distance along route: 123.79km
+2025-01-05 20:12:08,258 - __main__ - DEBUG - Total route length: 138.73km
+2025-01-05 20:12:08,259 - urllib3.connectionpool - DEBUG - Starting new HTTPS connection (1): api.open-meteo.com:443
+2025-01-05 20:12:08,376 - urllib3.connectionpool - DEBUG - https://api.open-meteo.com:443 "GET /v1/elevation?latitude=51.14783283847543&longitude=-2.717088315985718 HTTP/1.1" 200 28
+2025-01-05 20:12:08,705 - __main__ - DEBUG - Point: (-1.3153745616007033, 51.38842910979897)
+2025-01-05 20:12:08,706 - __main__ - DEBUG - Distance along route: 4.12km
+2025-01-05 20:12:08,706 - __main__ - DEBUG - Total route length: 138.73km
+2025-01-05 20:12:08,707 - urllib3.connectionpool - DEBUG - Starting new HTTPS connection (1): api.open-meteo.com:443
+2025-01-05 20:12:08,815 - urllib3.connectionpool - DEBUG - https://api.open-meteo.com:443 "GET /v1/elevation?latitude=51.38842910979897&longitude=-1.3153745616007033 HTTP/1.1" 200 29
+2025-01-05 20:12:09,141 - __main__ - DEBUG - Point: (-2.7286936654346188, 51.14255434457309)
+2025-01-05 20:12:09,142 - __main__ - DEBUG - Distance along route: 124.64km
+2025-01-05 20:12:09,142 - __main__ - DEBUG - Total route length: 138.73km
+2025-01-05 20:12:09,143 - urllib3.connectionpool - DEBUG - Starting new HTTPS connection (1): api.open-meteo.com:443
+2025-01-05 20:12:09,255 - urllib3.connectionpool - DEBUG - https://api.open-meteo.com:443 "GET /v1/elevation?latitude=51.14255434457309&longitude=-2.7286936654346188 HTTP/1.1" 200 27
+2025-01-05 20:12:09,589 - __main__ - DEBUG - Point: (-1.9040262, 51.19434345)
+2025-01-05 20:12:09,590 - __main__ - DEBUG - Distance along route: 57.39km
+2025-01-05 20:12:09,590 - __main__ - DEBUG - Total route length: 138.73km
+2025-01-05 20:12:09,591 - urllib3.connectionpool - DEBUG - Starting new HTTPS connection (1): api.open-meteo.com:443
+2025-01-05 20:12:09,703 - urllib3.connectionpool - DEBUG - https://api.open-meteo.com:443 "GET /v1/elevation?latitude=51.19434345&longitude=-1.9040262 HTTP/1.1" 200 28
+2025-01-05 20:12:10,035 - __main__ - DEBUG - Point: (-2.6916462, 51.1524879)
+2025-01-05 20:12:10,035 - __main__ - DEBUG - Distance along route: 121.61km
+2025-01-05 20:12:10,036 - __main__ - DEBUG - Total route length: 138.73km
+2025-01-05 20:12:10,037 - urllib3.connectionpool - DEBUG - Starting new HTTPS connection (1): api.open-meteo.com:443
+2025-01-05 20:12:10,149 - urllib3.connectionpool - DEBUG - https://api.open-meteo.com:443 "GET /v1/elevation?latitude=51.1524879&longitude=-2.6916462 HTTP/1.1" 200 28
+2025-01-05 20:12:10,482 - __main__ - DEBUG - Point: (-2.684218643356802, 51.15123394471836)
+2025-01-05 20:12:10,482 - __main__ - DEBUG - Distance along route: 121.34km
+2025-01-05 20:12:10,482 - __main__ - DEBUG - Total route length: 138.73km
+2025-01-05 20:12:10,483 - urllib3.connectionpool - DEBUG - Starting new HTTPS connection (1): api.open-meteo.com:443
+2025-01-05 20:12:10,594 - urllib3.connectionpool - DEBUG - https://api.open-meteo.com:443 "GET /v1/elevation?latitude=51.15123394471836&longitude=-2.684218643356802 HTTP/1.1" 200 28
+2025-01-05 20:12:10,926 - __main__ - DEBUG - Point: (-2.6050174094860465, 51.147185535622725)
+2025-01-05 20:12:10,926 - __main__ - DEBUG - Distance along route: 115.11km
+2025-01-05 20:12:10,927 - __main__ - DEBUG - Total route length: 138.73km
+2025-01-05 20:12:10,928 - urllib3.connectionpool - DEBUG - Starting new HTTPS connection (1): api.open-meteo.com:443
+2025-01-05 20:12:11,044 - urllib3.connectionpool - DEBUG - https://api.open-meteo.com:443 "GET /v1/elevation?latitude=51.147185535622725&longitude=-2.6050174094860465 HTTP/1.1" 200 28
+2025-01-05 20:12:11,315 - __main__ - INFO - Found 27 POIs
+2025-01-05 20:12:11,318 - __main__ - INFO - Results saved to route_pois.csv
+2025-01-05 20:12:11,324 - __main__ - INFO - HTML report saved to route_pois.html

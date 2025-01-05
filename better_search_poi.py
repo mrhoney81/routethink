@@ -8,6 +8,8 @@ import time
 import logging
 from gpx_functions import load_gpx_route, create_route_buffer
 import requests
+import folium
+from folium import plugins
 
 # Set up logging
 logging.basicConfig(
@@ -177,7 +179,7 @@ def calculate_distance_along_route(point: Point, route: LineString) -> float:
         logger.warning(f"Error calculating distance: {e}")
         return 0.0
 
-def find_pois_along_route(gpx_file: str, buffer_distance: float = 500) -> List[Dict]:
+def find_pois_along_route(gpx_file: str, buffer_distance: float = 500) -> tuple[List[Dict], LineString]:
     """Main function to find POIs along a GPX route"""
     try:
         # Load and process the route
@@ -203,16 +205,16 @@ def find_pois_along_route(gpx_file: str, buffer_distance: float = 500) -> List[D
         
         if not processed_pois:
             logger.warning("No POIs found along route")
-            return []
+            return [], route
             
         logger.info(f"Found {len(processed_pois)} POIs")
-        return processed_pois
+        return processed_pois, route
     
     except Exception as e:
         logger.error(f"Error in main processing: {e}")
         raise
 
-def save_results(pois: List[Dict], csv_file: str, html_file: str):
+def save_results(pois: List[Dict], route: LineString, csv_file: str, html_file: str):
     """Save results to CSV and HTML files"""
     try:
         # Prepare data for DataFrame
@@ -228,19 +230,21 @@ def save_results(pois: List[Dict], csv_file: str, html_file: str):
                 'Name': poi['name'],
                 'Type': poi['specific_type'],
                 'Category': poi['type'],
-                'Elevation': elevation_str,  # This should now be a plain string
+                'Elevation': elevation_str,
                 'Nearest Settlement': nearest_settlement,
                 'Coordinates': f"{lat}, {lon}",
-                'Google Maps': poi['maps_link']
+                'Google Maps': poi['maps_link'],
+                'coords': poi['coords']
             })
         
         # Save to CSV with string formatting
         df = pd.DataFrame(df_data)
-        df.to_csv(csv_file, index=False, quoting=1)  # Use quoting=1 to quote strings but not numbers
+        csv_columns = ['Distance', 'Name', 'Type', 'Category', 'Elevation', 'Nearest Settlement', 'Coordinates', 'Google Maps']
+        df[csv_columns].to_csv(csv_file, index=False, quoting=1)  # Use subset of columns for CSV
         logger.info(f"Results saved to {csv_file}")
         
-        # Create HTML
-        html_content = create_html_report(df_data)
+        # Create HTML with route
+        html_content = create_html_report(df_data, route)
         with open(html_file, 'w', encoding='utf-8') as f:
             f.write(html_content)
         logger.info(f"HTML report saved to {html_file}")
@@ -249,68 +253,134 @@ def save_results(pois: List[Dict], csv_file: str, html_file: str):
         logger.error(f"Error saving results: {e}")
         raise
 
-def create_html_report(data: List[Dict]) -> str:
-    """Create HTML report from POI data"""
+def create_html_report(data: List[Dict], route: LineString) -> str:
+    """Create HTML report from POI data with interactive map"""
     html_template = """<!DOCTYPE html>
 <html>
 <head>
     <title>Route POI Report</title>
+    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.7.1/dist/leaflet.css"/>
+    <script src="https://unpkg.com/leaflet@1.7.1/dist/leaflet.js"></script>
     <style>
-        body {{ font-family: Arial, sans-serif; margin: 20px; }}
+        body {{ font-family: Arial, sans-serif; margin: 0; padding: 0; display: flex; }}
+        #sidebar {{ width: 40%; height: 100vh; overflow-y: auto; padding: 20px; box-sizing: border-box; }}
+        #map {{ width: 60%; height: 100vh; }}
         table {{ border-collapse: collapse; width: 100%; }}
         th, td {{ border: 1px solid #ddd; padding: 8px; text-align: left; }}
         th {{ background-color: #f2f2f2; }}
-        .shop-supermarket {{ background-color: #e3f2fd; }}  /* Lightest blue */
-        .shop-convenience {{ background-color: #bbdefb; }}  /* Light blue */
-        .shop-other {{ background-color: #90caf9; }}       /* Medium blue */
-        .campsite {{ background-color: #c8e6c9; }}         /* Pastel green */
+        .shop-supermarket {{ background-color: #e3f2fd; }}
+        .shop-convenience {{ background-color: #bbdefb; }}
+        .shop-other {{ background-color: #90caf9; }}
+        .campsite {{ background-color: #c8e6c9; }}
         .distance {{ font-weight: bold; }}
         .elevation {{ color: #805ad5; }}
+        .poi-row {{ cursor: pointer; }}
+        .poi-row:hover {{ background-color: #f5f5f5; }}
         a {{ color: #2b6cb0; text-decoration: none; }}
         a:hover {{ text-decoration: underline; }}
     </style>
 </head>
 <body>
-    <h1>POIs Along Route</h1>
-    <table>
-        <tr>
-            <th>Distance (km)</th>
-            <th>Name</th>
-            <th>Type</th>
-            <th>Elevation</th>
-            <th>Nearest Settlement</th>
-            <th>Location</th>
-        </tr>
-        {rows}
-    </table>
+    <div id="sidebar">
+        <h1>POIs Along Route</h1>
+        <table>
+            <tr>
+                <th>Distance (km)</th>
+                <th>Name</th>
+                <th>Type</th>
+                <th>Elevation</th>
+                <th>Nearest Settlement</th>
+            </tr>
+            {rows}
+        </table>
+    </div>
+    <div id="map"></div>
+    <script>
+        // Initialize the map
+        var map = L.map('map');
+        L.tileLayer('https://{{s}}.tile.openstreetmap.org/{{z}}/{{x}}/{{y}}.png', {{
+            attribution: '© OpenStreetMap contributors'
+        }}).addTo(map);
+
+        // Add route
+        var routeCoords = {route_coords};
+        var routeLine = L.polyline(routeCoords, {{color: 'blue', weight: 3}}).addTo(map);
+        
+        // Add markers
+        var markers = {markers_data};
+        markers.forEach(function(marker) {{
+            L.marker([marker.lat, marker.lon], {{
+                icon: L.icon({{
+                    iconUrl: marker.icon,
+                    iconSize: [25, 41],
+                    iconAnchor: [12, 41],
+                    popupAnchor: [1, -34]
+                }})
+            }})
+            .bindPopup(marker.popup)
+            .addTo(map);
+        }});
+
+        // Fit map to route
+        map.fitBounds(routeLine.getBounds());
+
+        // Zoom to POI function
+        function zoomToPOI(lat, lon) {{
+            map.setView([lat, lon], 15);
+        }}
+    </script>
 </body>
 </html>"""
 
+    # Prepare route coordinates
+    route_coords = [[y, x] for x, y in route.coords]
+    
+    # Prepare markers data
+    markers_data = []
+    for item in data:
+        lat, lon = item['coords']
+        icon_url = ('https://raw.githubusercontent.com/pointhi/leaflet-color-markers/master/img/'
+                   f"marker-icon-{'green' if item['Category'] == 'campsite' else 'red'}.png")
+        
+        popup_html = f"""
+            <b>{item['Name']}</b><br>
+            Type: {item['Type']}<br>
+            Distance: {item['Distance']}km<br>
+            Elevation: {item['Elevation']}<br>
+            <a href="{item['Google Maps']}" target="_blank">View in Google Maps</a>
+        """
+        
+        markers_data.append({
+            'lat': lat,
+            'lon': lon,
+            'icon': icon_url,
+            'popup': popup_html.replace('"', '\\"').replace('\n', '')
+        })
+
+    # Generate rows
     rows = []
     for item in data:
-        # Determine row class based on POI type
-        if item['Category'] == 'shop':
-            if item['Type'] == 'supermarket':
-                row_class = 'shop-supermarket'
-            elif item['Type'] == 'convenience':
-                row_class = 'shop-convenience'
-            else:
-                row_class = 'shop-other'
-        else:
-            row_class = 'campsite'
-
+        lat, lon = item['coords']
+        row_class = 'campsite' if item['Category'] == 'campsite' else f"shop-{item['Type']}"
+        
         row = f"""
-        <tr class="{row_class}">
+        <tr class="poi-row {row_class}" onclick="zoomToPOI({lat}, {lon})">
             <td class="distance">{item['Distance']} km</td>
             <td>{item['Name']}</td>
             <td>{item['Type']}</td>
             <td class="elevation">{item['Elevation']}</td>
             <td>{item['Nearest Settlement']}</td>
-            <td><a href="{item['Google Maps']}" target="_blank">{item['Coordinates']}</a></td>
         </tr>"""
         rows.append(row)
+
+    # Replace placeholders in template
+    html_content = html_template.format(
+        rows=''.join(rows),
+        route_coords=str(route_coords),
+        markers_data=str(markers_data)
+    )
     
-    return html_template.format(rows=''.join(rows))
+    return html_content
 
 def get_elevation(lat: float, lon: float) -> float:
     """Fetch elevation data using open-meteo API"""
@@ -367,13 +437,14 @@ def main():
         gpx_file = "gpx_test.gpx"
         logger.info(f"Processing GPX file: {gpx_file}")
         
-        # Find POIs
-        pois = find_pois_along_route(gpx_file, buffer_distance=500)
+        # Find POIs and get route
+        pois, route = find_pois_along_route(gpx_file, buffer_distance=500)
         
         if pois:
             # Save results
             save_results(
                 pois,
+                route,
                 'route_pois.csv',
                 'route_pois.html'
             )
