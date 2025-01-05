@@ -124,7 +124,7 @@ def process_single_poi(row: pd.Series, poi_type: str, route: LineString, buffer_
             else row.get('tourism')
         )
         
-        # Create Google Maps link
+        # Create Google Maps link - ensure it's a proper URL
         maps_link = f"https://www.google.com/maps?q={coords[0]},{coords[1]}"
         
         return {
@@ -342,19 +342,20 @@ def create_html_report(data: List[Dict], route: LineString) -> str:
         icon_url = ('https://raw.githubusercontent.com/pointhi/leaflet-color-markers/master/img/'
                    f"marker-icon-{'green' if item['Category'] == 'campsite' else 'red'}.png")
         
+        # Create popup without escaping the URL
         popup_html = f"""
             <b>{item['Name']}</b><br>
             Type: {item['Type']}<br>
             Distance: {item['Distance']}km<br>
             Elevation: {item['Elevation']}<br>
-            <a href="{item['Google Maps']}" target="_blank">View in Google Maps</a>
+            <a href='https://www.google.com/maps?q={lat},{lon}' target='_blank'>View in Google Maps</a>
         """
         
         markers_data.append({
             'lat': lat,
             'lon': lon,
             'icon': icon_url,
-            'popup': popup_html.replace('"', '\\"').replace('\n', '')
+            'popup': popup_html.replace('\n', '')  # Remove newlines but don't escape quotes
         })
 
     # Generate rows
