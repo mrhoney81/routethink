@@ -4,19 +4,22 @@ A Python toolkit for analyzing GPX tracks and finding useful Points of Interest 
 
 ## Main Features
 
+- Interactive split-screen interface with POI list and route map
 - Finds shops (supermarkets, convenience stores, etc.) and campsites along a GPX route
 - Calculates distances along the route to each POI
 - Provides elevation data for each location
 - Identifies nearest settlements
-- Generates both CSV and HTML reports
-- Color-coded HTML output for easy visualization
+- Click-to-zoom functionality for easy POI location
+- Color-coded POI list for easy reference
+
+![RouteThink Interface](screenshot.png)
 
 ## Installation
 
 Install all required packages with:
 
 ```bash
-pip install gpxpy osmnx geopandas shapely pandas requests
+pip install gpxpy osmnx geopandas shapely pandas requests folium
 ```
 
 ## Usage
@@ -38,7 +41,7 @@ To use:
 
 The script will generate:
 - `route_pois.csv`: Spreadsheet containing all POIs
-- `route_pois.html`: Interactive HTML report with color-coded POIs
+- `route_pois.html`: Interactive HTML report with map and POI list
 - `debug_log.txt`: Detailed logging information
 
 ## File Description
@@ -49,15 +52,22 @@ The script will generate:
 
 ## Output Format
 
-The HTML report color-codes POIs for easy reference:
-- Light blue: Supermarkets
-- Medium blue: Convenience stores
-- Darker blue: Other shops
-- Pastel green: Campsites
+The HTML report features a split-screen layout:
+- Left side: Color-coded POI list with:
+  - Light blue: Supermarkets
+  - Medium blue: Convenience stores
+  - Darker blue: Other shops
+  - Pastel green: Campsites
+- Right side: Interactive map showing:
+  - Full route trace in blue
+  - Clickable POI markers
+  - Zoom and pan controls
 
-Each entry includes:
+Each POI entry includes:
 - Distance along route (km)
 - Name and type of POI
 - Elevation
 - Nearest settlement
 - Clickable coordinates linking to Google Maps
+
+Click any POI in the list to zoom to its location on the map.
