@@ -1,6 +1,6 @@
 # RouteThink
 
-A Python toolkit for analyzing GPX tracks and finding useful Points of Interest (POIs) along a route. Particularly useful for planning hiking, cycling, or road trips by identifying shops, campsites, and other amenities along your route.
+A Python thingy for analyzing GPX tracks and finding useful Points of Interest (POIs) along a route. Particularly useful for planning hiking, cycling, or road trips by identifying shops, campsites, and other amenities along your route.
 
 ## Main Features
 
