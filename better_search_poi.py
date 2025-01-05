@@ -7,6 +7,7 @@ from typing import Dict, List
 import time
 import logging
 from gpx_functions import load_gpx_route, create_route_buffer
+import requests
 
 # Set up logging
 logging.basicConfig(
@@ -64,14 +65,14 @@ def get_pois_along_route(buffer_area: gpd.GeoDataFrame) -> Dict[str, gpd.GeoData
         logger.error(f"Error getting POIs: {e}")
         return {'shops': gpd.GeoDataFrame(), 'campsites': gpd.GeoDataFrame()}
 
-def process_pois(pois: Dict[str, gpd.GeoDataFrame], route: LineString) -> List[Dict]:
+def process_pois(pois: Dict[str, gpd.GeoDataFrame], route: LineString, buffer_area: gpd.GeoDataFrame) -> List[Dict]:
     """Process POIs into a standardized format"""
     processed = []
     
     # Process shops
     for idx, row in pois['shops'].iterrows():
         try:
-            poi = process_single_poi(row, 'shop', route)
+            poi = process_single_poi(row, 'shop', route, buffer_area)
             if poi:
                 processed.append(poi)
         except Exception as e:
@@ -81,7 +82,7 @@ def process_pois(pois: Dict[str, gpd.GeoDataFrame], route: LineString) -> List[D
     # Process campsites
     for idx, row in pois['campsites'].iterrows():
         try:
-            poi = process_single_poi(row, 'campsite', route)
+            poi = process_single_poi(row, 'campsite', route, buffer_area)
             if poi:
                 processed.append(poi)
         except Exception as e:
@@ -93,7 +94,7 @@ def process_pois(pois: Dict[str, gpd.GeoDataFrame], route: LineString) -> List[D
     
     return processed
 
-def process_single_poi(row: pd.Series, poi_type: str, route: LineString) -> Dict:
+def process_single_poi(row: pd.Series, poi_type: str, route: LineString, buffer_area: gpd.GeoDataFrame) -> Dict:
     """Process a single POI into standardized format"""
     try:
         name = row.get('name', 'Unnamed')
@@ -108,6 +109,12 @@ def process_single_poi(row: pd.Series, poi_type: str, route: LineString) -> Dict
             
         # Calculate distance along route
         distance_km = calculate_distance_along_route(point, route)
+        
+        # Get elevation
+        elevation = get_elevation(coords[0], coords[1])
+        
+        # Get nearest settlement
+        nearest = get_nearest_settlement(point, buffer_area)
             
         # Get specific type
         specific_type = (
@@ -123,7 +130,11 @@ def process_single_poi(row: pd.Series, poi_type: str, route: LineString) -> Dict
             'type': poi_type,
             'specific_type': specific_type,
             'coords': coords,
+            'elevation': elevation,
             'distance_km': distance_km,
+            'nearest_settlement': nearest['name'],
+            'settlement_type': nearest['type'],
+            'settlement_distance': nearest['distance'],
             'maps_link': maps_link,
             'all_tags': dict(row)
         }
@@ -188,7 +199,7 @@ def find_pois_along_route(gpx_file: str, buffer_distance: float = 500) -> List[D
         pois = get_pois_along_route(buffer_area)
         
         # Process the POIs
-        processed_pois = process_pois(pois, route)
+        processed_pois = process_pois(pois, route, buffer_area)
         
         if not processed_pois:
             logger.warning("No POIs found along route")
@@ -208,18 +219,24 @@ def save_results(pois: List[Dict], csv_file: str, html_file: str):
         df_data = []
         for poi in pois:
             lat, lon = poi['coords']
+            # Format elevation without brackets
+            elevation_str = f"{poi['elevation']}m" if poi['elevation'] is not None else "Unknown"
+            nearest_settlement = f"{poi['nearest_settlement']} ({poi['settlement_type']}, {poi['settlement_distance']}km)"
+            
             df_data.append({
                 'Distance': poi['distance_km'],
                 'Name': poi['name'],
                 'Type': poi['specific_type'],
                 'Category': poi['type'],
+                'Elevation': elevation_str,  # This should now be a plain string
+                'Nearest Settlement': nearest_settlement,
                 'Coordinates': f"{lat}, {lon}",
                 'Google Maps': poi['maps_link']
             })
         
-        # Save to CSV
+        # Save to CSV with string formatting
         df = pd.DataFrame(df_data)
-        df.to_csv(csv_file, index=False)
+        df.to_csv(csv_file, index=False, quoting=1)  # Use quoting=1 to quote strings but not numbers
         logger.info(f"Results saved to {csv_file}")
         
         # Create HTML
@@ -243,10 +260,14 @@ def create_html_report(data: List[Dict]) -> str:
         table {{ border-collapse: collapse; width: 100%; }}
         th, td {{ border: 1px solid #ddd; padding: 8px; text-align: left; }}
         th {{ background-color: #f2f2f2; }}
-        tr:nth-child(even) {{ background-color: #f9f9f9; }}
-        .shop {{ color: #2c5282; }}
-        .campsite {{ color: #276749; }}
+        .shop-supermarket {{ background-color: #e3f2fd; }}  /* Lightest blue */
+        .shop-convenience {{ background-color: #bbdefb; }}  /* Light blue */
+        .shop-other {{ background-color: #90caf9; }}       /* Medium blue */
+        .campsite {{ background-color: #c8e6c9; }}         /* Pastel green */
         .distance {{ font-weight: bold; }}
+        .elevation {{ color: #805ad5; }}
+        a {{ color: #2b6cb0; text-decoration: none; }}
+        a:hover {{ text-decoration: underline; }}
     </style>
 </head>
 <body>
@@ -256,6 +277,8 @@ def create_html_report(data: List[Dict]) -> str:
             <th>Distance (km)</th>
             <th>Name</th>
             <th>Type</th>
+            <th>Elevation</th>
+            <th>Nearest Settlement</th>
             <th>Location</th>
         </tr>
         {rows}
@@ -265,17 +288,79 @@ def create_html_report(data: List[Dict]) -> str:
 
     rows = []
     for item in data:
-        category_class = 'shop' if item['Category'] == 'shop' else 'campsite'
+        # Determine row class based on POI type
+        if item['Category'] == 'shop':
+            if item['Type'] == 'supermarket':
+                row_class = 'shop-supermarket'
+            elif item['Type'] == 'convenience':
+                row_class = 'shop-convenience'
+            else:
+                row_class = 'shop-other'
+        else:
+            row_class = 'campsite'
+
         row = f"""
-        <tr>
+        <tr class="{row_class}">
             <td class="distance">{item['Distance']} km</td>
-            <td class="{category_class}">{item['Name']}</td>
+            <td>{item['Name']}</td>
             <td>{item['Type']}</td>
+            <td class="elevation">{item['Elevation']}</td>
+            <td>{item['Nearest Settlement']}</td>
             <td><a href="{item['Google Maps']}" target="_blank">{item['Coordinates']}</a></td>
         </tr>"""
         rows.append(row)
     
     return html_template.format(rows=''.join(rows))
+
+def get_elevation(lat: float, lon: float) -> float:
+    """Fetch elevation data using open-meteo API"""
+    try:
+        url = f"https://api.open-meteo.com/v1/elevation?latitude={lat}&longitude={lon}"
+        response = requests.get(url, timeout=5)
+        if response.status_code == 200:
+            data = response.json()
+            return data['elevation']
+        return None
+    except Exception as e:
+        logger.warning(f"Error getting elevation: {e}")
+        return None
+
+def get_nearest_settlement(point: Point, buffer_area: gpd.GeoDataFrame) -> Dict:
+    """Find the nearest settlement (village or larger) to a point"""
+    try:
+        # Query for settlements
+        settlement_tags = {
+            'place': ['city', 'town', 'village']
+        }
+        
+        settlements = ox.features_from_polygon(
+            buffer_area.geometry.iloc[0],
+            tags=settlement_tags
+        )
+        
+        if settlements.empty:
+            return {'name': 'Unknown', 'type': 'Unknown', 'distance': 0}
+        
+        # Convert settlements to same CRS as point for distance calculation
+        point_gdf = gpd.GeoDataFrame(geometry=[point], crs="EPSG:4326")
+        utm_crs = point_gdf.estimate_utm_crs()
+        point_utm = point_gdf.to_crs(utm_crs)
+        settlements_utm = settlements.to_crs(utm_crs)
+        
+        # Calculate distances to all settlements
+        distances = settlements_utm.geometry.distance(point_utm.geometry.iloc[0])
+        nearest_idx = distances.idxmin()
+        nearest = settlements.loc[nearest_idx]
+        
+        return {
+            'name': nearest.get('name', 'Unknown'),
+            'type': nearest.get('place', 'Unknown'),
+            'distance': round(distances[nearest_idx] / 1000, 2)  # Convert to km
+        }
+        
+    except Exception as e:
+        logger.warning(f"Error finding nearest settlement: {e}")
+        return {'name': 'Unknown', 'type': 'Unknown', 'distance': 0}
 
 def main():
     try:

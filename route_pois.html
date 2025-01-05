@@ -7,10 +7,14 @@
         table { border-collapse: collapse; width: 100%; }
         th, td { border: 1px solid #ddd; padding: 8px; text-align: left; }
         th { background-color: #f2f2f2; }
-        tr:nth-child(even) { background-color: #f9f9f9; }
-        .shop { color: #2c5282; }
-        .campsite { color: #276749; }
+        .shop-supermarket { background-color: #e3f2fd; }  /* Lightest blue */
+        .shop-convenience { background-color: #bbdefb; }  /* Light blue */
+        .shop-other { background-color: #90caf9; }       /* Medium blue */
+        .campsite { background-color: #c8e6c9; }         /* Pastel green */
         .distance { font-weight: bold; }
+        .elevation { color: #805ad5; }
+        a { color: #2b6cb0; text-decoration: none; }
+        a:hover { text-decoration: underline; }
     </style>
 </head>
 <body>
@@ -20,169 +24,225 @@
             <th>Distance (km)</th>
             <th>Name</th>
             <th>Type</th>
+            <th>Elevation</th>
+            <th>Nearest Settlement</th>
             <th>Location</th>
         </tr>
         
-        <tr>
+        <tr class="shop-convenience">
             <td class="distance">4.12 km</td>
-            <td class="shop">Greenham Court Stores</td>
+            <td>Greenham Court Stores</td>
             <td>convenience</td>
+            <td class="elevation">[113.0]m</td>
+            <td>Greenham (village, 0.91km)</td>
             <td><a href="https://www.google.com/maps?q=51.38842910979897,-1.3153745616007033" target="_blank">51.38842910979897, -1.3153745616007033</a></td>
         </tr>
-        <tr>
+        <tr class="shop-convenience">
             <td class="distance">4.13 km</td>
-            <td class="shop">M&S Simply Food</td>
+            <td>M&S Simply Food</td>
             <td>convenience</td>
+            <td class="elevation">[122.0]m</td>
+            <td>Greenham (village, 1.03km)</td>
             <td><a href="https://www.google.com/maps?q=51.3851934,-1.3171735" target="_blank">51.3851934, -1.3171735</a></td>
         </tr>
-        <tr>
+        <tr class="shop-supermarket">
             <td class="distance">4.13 km</td>
-            <td class="shop">Lidl</td>
+            <td>Lidl</td>
             <td>supermarket</td>
+            <td class="elevation">[124.0]m</td>
+            <td>Greenham (village, 1.04km)</td>
             <td><a href="https://www.google.com/maps?q=51.3861987,-1.3174313" target="_blank">51.3861987, -1.3174313</a></td>
         </tr>
-        <tr>
+        <tr class="shop-other">
             <td class="distance">4.2 km</td>
-            <td class="shop">TK Maxx</td>
+            <td>TK Maxx</td>
             <td>department_store</td>
+            <td class="elevation">[125.0]m</td>
+            <td>Greenham (village, 1.09km)</td>
             <td><a href="https://www.google.com/maps?q=51.3851575,-1.3180291" target="_blank">51.3851575, -1.3180291</a></td>
         </tr>
-        <tr>
+        <tr class="shop-supermarket">
             <td class="distance">4.21 km</td>
-            <td class="shop">Tesco Extra</td>
+            <td>Tesco Extra</td>
             <td>supermarket</td>
+            <td class="elevation">[123.0]m</td>
+            <td>Greenham (village, 1.15km)</td>
             <td><a href="https://www.google.com/maps?q=51.38274212792579,-1.317867467642635" target="_blank">51.38274212792579, -1.317867467642635</a></td>
         </tr>
-        <tr>
+        <tr class="shop-supermarket">
             <td class="distance">5.86 km</td>
-            <td class="shop">Co-op</td>
+            <td>Co-op</td>
             <td>supermarket</td>
+            <td class="elevation">[122.0]m</td>
+            <td>Enborne Row (village, 1.82km)</td>
             <td><a href="https://www.google.com/maps?q=51.3825041,-1.3406287" target="_blank">51.3825041, -1.3406287</a></td>
         </tr>
-        <tr>
+        <tr class="shop-convenience">
             <td class="distance">5.86 km</td>
-            <td class="shop">Premier</td>
+            <td>Premier</td>
             <td>convenience</td>
+            <td class="elevation">[126.0]m</td>
+            <td>Enborne Row (village, 1.81km)</td>
             <td><a href="https://www.google.com/maps?q=51.3824823,-1.3407093" target="_blank">51.3824823, -1.3407093</a></td>
         </tr>
-        <tr>
+        <tr class="shop-convenience">
             <td class="distance">5.93 km</td>
-            <td class="shop">Sainsbury's Local</td>
+            <td>Sainsbury's Local</td>
             <td>convenience</td>
+            <td class="elevation">[127.0]m</td>
+            <td>Enborne Row (village, 1.64km)</td>
             <td><a href="https://www.google.com/maps?q=51.3809205,-1.3415338" target="_blank">51.3809205, -1.3415338</a></td>
         </tr>
-        <tr>
+        <tr class="shop-convenience">
             <td class="distance">57.38 km</td>
-            <td class="shop">The Co-operative Food</td>
+            <td>The Co-operative Food</td>
             <td>convenience</td>
+            <td class="elevation">[80.0]m</td>
+            <td>Shrewton (village, 0.05km)</td>
             <td><a href="https://www.google.com/maps?q=51.1943815,-1.9030903" target="_blank">51.1943815, -1.9030903</a></td>
         </tr>
-        <tr>
+        <tr class="shop-convenience">
             <td class="distance">57.39 km</td>
-            <td class="shop">The Bridge Garage</td>
+            <td>The Bridge Garage</td>
             <td>convenience</td>
+            <td class="elevation">[80.0]m</td>
+            <td>Shrewton (village, 0.03km)</td>
             <td><a href="https://www.google.com/maps?q=51.19434345,-1.9040262" target="_blank">51.19434345, -1.9040262</a></td>
         </tr>
-        <tr>
+        <tr class="shop-other">
             <td class="distance">106.92 km</td>
-            <td class="shop">Delena's on the corner</td>
+            <td>Delena's on the corner</td>
             <td>bakery</td>
+            <td class="elevation">[87.0]m</td>
+            <td>Evercreech (village, 0.25km)</td>
             <td><a href="https://www.google.com/maps?q=51.1482999,-2.505599" target="_blank">51.1482999, -2.505599</a></td>
         </tr>
-        <tr>
+        <tr class="shop-convenience">
             <td class="distance">106.92 km</td>
-            <td class="shop">Co-op Food</td>
+            <td>Co-op Food</td>
             <td>convenience</td>
+            <td class="elevation">[87.0]m</td>
+            <td>Evercreech (village, 0.22km)</td>
             <td><a href="https://www.google.com/maps?q=51.147953599999994,-2.5051866999999994" target="_blank">51.147953599999994, -2.5051866999999994</a></td>
         </tr>
-        <tr>
+        <tr class="campsite">
             <td class="distance">115.11 km</td>
-            <td class="campsite">Sticklinch campsite (Glastonbury Festival)</td>
+            <td>Sticklinch campsite (Glastonbury Festival)</td>
             <td>camp_site</td>
+            <td class="elevation">[44.0]m</td>
+            <td>East Pennard (village, 2.29km)</td>
             <td><a href="https://www.google.com/maps?q=51.147185535622725,-2.6050174094860465" target="_blank">51.147185535622725, -2.6050174094860465</a></td>
         </tr>
-        <tr>
+        <tr class="shop-convenience">
             <td class="distance">121.34 km</td>
-            <td class="shop">nan</td>
+            <td>nan</td>
             <td>convenience</td>
+            <td class="elevation">[28.0]m</td>
+            <td>Glastonbury (town, 2.31km)</td>
             <td><a href="https://www.google.com/maps?q=51.15205483752763,-2.6842371875689373" target="_blank">51.15205483752763, -2.6842371875689373</a></td>
         </tr>
-        <tr>
+        <tr class="campsite">
             <td class="distance">121.34 km</td>
-            <td class="campsite">The Old Oaks Touring Park</td>
+            <td>The Old Oaks Touring Park</td>
             <td>caravan_site</td>
+            <td class="elevation">[31.0]m</td>
+            <td>Glastonbury (town, 2.29km)</td>
             <td><a href="https://www.google.com/maps?q=51.15123394471836,-2.684218643356802" target="_blank">51.15123394471836, -2.684218643356802</a></td>
         </tr>
-        <tr>
+        <tr class="campsite">
             <td class="distance">121.61 km</td>
-            <td class="campsite">Paddington Farm Trust</td>
+            <td>Paddington Farm Trust</td>
             <td>camp_site</td>
+            <td class="elevation">[41.0]m</td>
+            <td>Glastonbury (town, 1.81km)</td>
             <td><a href="https://www.google.com/maps?q=51.1524879,-2.6916462" target="_blank">51.1524879, -2.6916462</a></td>
         </tr>
-        <tr>
+        <tr class="shop-supermarket">
             <td class="distance">123.58 km</td>
-            <td class="shop">Earthfare</td>
+            <td>Earthfare</td>
             <td>supermarket</td>
+            <td class="elevation">[27.0]m</td>
+            <td>Glastonbury (town, 0.17km)</td>
             <td><a href="https://www.google.com/maps?q=51.1480972,-2.7141166" target="_blank">51.1480972, -2.7141166</a></td>
         </tr>
-        <tr>
+        <tr class="shop-supermarket">
             <td class="distance">123.7 km</td>
-            <td class="shop">The Co-operative Food</td>
+            <td>The Co-operative Food</td>
             <td>supermarket</td>
+            <td class="elevation">[26.0]m</td>
+            <td>Glastonbury (town, 0.07km)</td>
             <td><a href="https://www.google.com/maps?q=51.1476755,-2.7157712" target="_blank">51.1476755, -2.7157712</a></td>
         </tr>
-        <tr>
+        <tr class="shop-other">
             <td class="distance">123.77 km</td>
-            <td class="shop">Burns the Bread</td>
+            <td>Burns the Bread</td>
             <td>bakery</td>
+            <td class="elevation">[22.0]m</td>
+            <td>Glastonbury (town, 0.05km)</td>
             <td><a href="https://www.google.com/maps?q=51.1475678,-2.7166711" target="_blank">51.1475678, -2.7166711</a></td>
         </tr>
-        <tr>
+        <tr class="shop-other">
             <td class="distance">123.79 km</td>
-            <td class="shop">The Gauntlet</td>
+            <td>The Gauntlet</td>
             <td>mall</td>
+            <td class="elevation">[22.0]m</td>
+            <td>Glastonbury (town, 0.04km)</td>
             <td><a href="https://www.google.com/maps?q=51.14783283847543,-2.717088315985718" target="_blank">51.14783283847543, -2.717088315985718</a></td>
         </tr>
-        <tr>
+        <tr class="shop-convenience">
             <td class="distance">123.85 km</td>
-            <td class="shop">Off License</td>
+            <td>Off License</td>
             <td>convenience</td>
+            <td class="elevation">[14.0]m</td>
+            <td>Glastonbury (town, 0.38km)</td>
             <td><a href="https://www.google.com/maps?q=51.150286,-2.7206144" target="_blank">51.150286, -2.7206144</a></td>
         </tr>
-        <tr>
+        <tr class="shop-other">
             <td class="distance">123.86 km</td>
-            <td class="shop">Stephens Butchers</td>
+            <td>Stephens Butchers</td>
             <td>butcher</td>
+            <td class="elevation">[18.0]m</td>
+            <td>Glastonbury (town, 0.13km)</td>
             <td><a href="https://www.google.com/maps?q=51.1474793,-2.718166" target="_blank">51.1474793, -2.718166</a></td>
         </tr>
-        <tr>
+        <tr class="shop-convenience">
             <td class="distance">123.9 km</td>
-            <td class="shop">Abbey Convenience Store</td>
+            <td>Abbey Convenience Store</td>
             <td>convenience</td>
+            <td class="elevation">[18.0]m</td>
+            <td>Glastonbury (town, 0.18km)</td>
             <td><a href="https://www.google.com/maps?q=51.1466812,-2.7179553" target="_blank">51.1466812, -2.7179553</a></td>
         </tr>
-        <tr>
+        <tr class="shop-supermarket">
             <td class="distance">124.05 km</td>
-            <td class="shop">Morrisons</td>
+            <td>Morrisons</td>
             <td>supermarket</td>
+            <td class="elevation">[13.0]m</td>
+            <td>Glastonbury (town, 0.37km)</td>
             <td><a href="https://www.google.com/maps?q=51.14536528946274,-2.7196496994882335" target="_blank">51.14536528946274, -2.7196496994882335</a></td>
         </tr>
-        <tr>
+        <tr class="shop-convenience">
             <td class="distance">124.64 km</td>
-            <td class="shop">Londis</td>
+            <td>Londis</td>
             <td>convenience</td>
+            <td class="elevation">[8.0]m</td>
+            <td>Glastonbury (town, 1.04km)</td>
             <td><a href="https://www.google.com/maps?q=51.14255434457309,-2.7286936654346188" target="_blank">51.14255434457309, -2.7286936654346188</a></td>
         </tr>
-        <tr>
+        <tr class="shop-supermarket">
             <td class="distance">124.91 km</td>
-            <td class="shop">Tesco</td>
+            <td>Tesco</td>
             <td>supermarket</td>
+            <td class="elevation">[8.0]m</td>
+            <td>Glastonbury (town, 1.17km)</td>
             <td><a href="https://www.google.com/maps?q=51.14295215696265,-2.7311553990309214" target="_blank">51.14295215696265, -2.7311553990309214</a></td>
         </tr>
-        <tr>
+        <tr class="shop-supermarket">
             <td class="distance">125.11 km</td>
-            <td class="shop">ALDI</td>
+            <td>ALDI</td>
             <td>supermarket</td>
+            <td class="elevation">[8.0]m</td>
+            <td>Glastonbury (town, 1.37km)</td>
             <td><a href="https://www.google.com/maps?q=51.14208531488366,-2.733664629693808" target="_blank">51.14208531488366, -2.733664629693808</a></td>
         </tr>
     </table>
